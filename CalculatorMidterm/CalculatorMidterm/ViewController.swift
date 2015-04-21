@@ -67,9 +67,20 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func numberInput(sender: AnyObject) {
+    @IBAction func numberInput(sender: UIButton) {
         
-        currentNumber = currentNumber + Float(sender.outputLabel!.text!.toInt()!)
+        
+        if let text = outputLabel.text {
+            if let meow = text.toInt() {
+                currentNumber += Float (meow)
+            } else {
+                print("text.toInt() failed!!!!")
+            }
+        } else {
+            print("outputLabel.textfailed!!!!")
+        }
+        
+//        currentNumber += Float(outputLabel.text?.toInt() ?? 0)
         outputLabel.text = ("\(currentNumber)")
         
         
