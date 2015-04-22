@@ -37,31 +37,35 @@ class ViewController: UIViewController {
     
     @IBAction func operationButton(sender: AnyObject) {
         
+        let opButtons = sender as! UIButton
+        currentOp = opButtons.titleLabel!.text!
+        
         switch currentOp {
+            
             case "=":
                 result = currentNumber
-            case "+":
+            case "➕":
                 result = result + currentNumber
             case "-":
                 result = result - currentNumber
-            case "*":
+            case "✖️":
                 result = result * currentNumber
-            case "/":
+            case "➗":
                 result = result / currentNumber
             default:
                 println("Error")
+        
         }
         
         currentNumber = 0
         outputLabel.text = ("\(result)")
         
-        if (sender.outputLabel!.text == "=") {
+        if (outputLabel!.text == "=") {
             
             result = 0
             
+        
         }
-    
-    currentOp = sender.outputLabel!.text! as String
         
     }
     
@@ -70,12 +74,8 @@ class ViewController: UIViewController {
     @IBAction func numberInput(sender: UIButton) {
         
         
-        if let text = outputLabel.text {
-            if let meow = text.toInt() {
-                currentNumber += Float (meow)
-            } else {
-                print("text.toInt() failed!!!!")
-            }
+        if let text = sender.currentTitle {
+            currentNumber += (text as NSString).floatValue
         } else {
             print("outputLabel.textfailed!!!!")
         }
