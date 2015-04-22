@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         switch currentOp {
             
             case "=":
-                result = currentNumber
+                result =
             case "➕":
                 result = result + currentNumber
             case "-":
@@ -57,6 +57,7 @@ class ViewController: UIViewController {
         
         }
         
+        currentOp =
         currentNumber = 0
         outputLabel.text = ("\(result)")
         
